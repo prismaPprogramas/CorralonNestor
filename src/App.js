@@ -99,74 +99,73 @@
 // }
 // export default NewApp
 
-// import { HashRouter, Routes, Route } from 'react-router-dom'
-// import { useState } from 'react'
-// import './Corralon.css'
-// import 'bootstrap-icons/font/bootstrap-icons.css'
+import { HashRouter, Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
+import './Corralon.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import CustomProvider from './Provider'
+import Navdar from './Corralon/Navdar'
+import Main from './Corralon/Main'
+import Footer from './Corralon/Footer'
+import Contacto from './Corralon/Contacto'
 
-// import CustomProvider from './Provider'
-// import Navdar from './Corralon/Navdar'
-// import Main from './Corralon/Main'
-// import Footer from './Corralon/Footer'
-// import Contacto from './Corralon/Contacto'
+function App() {
 
-// function App() {
+  const [contactoAbierto, setContactoAbierto] = useState(false)
 
-//   const [contactoAbierto, setContactoAbierto] = useState(false)
+  const abrirContacto = () => {
+    setContactoAbierto(true)
+  }
 
-//   const abrirContacto = () => {
-//     setContactoAbierto(true)
-//   }
+  const cerrarContacto = () => {
+    setContactoAbierto(false)
+  }
 
-//   const cerrarContacto = () => {
-//     setContactoAbierto(false)
-//   }
+  return (
 
-//   return (
+    <div className="App">
 
-//     <div className="App">
+      <HashRouter>
 
-//       <HashRouter>
+        <Navdar abrirContacto={abrirContacto} />
 
-//         <Navdar abrirContacto={abrirContacto} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main abrirContacto={abrirContacto} />
+            }
+          />
+        </Routes>
 
-//         <Routes>
-//           <Route
-//             path="/"
-//             element={
-//               <Main abrirContacto={abrirContacto} />
-//             }
-//           />
-//         </Routes>
+        <Footer abrirContacto={abrirContacto} />
 
-//         <Footer abrirContacto={abrirContacto} />
+        {
+          contactoAbierto &&
+          <Contacto cerrarContacto={cerrarContacto} />
+        }
 
-//         {
-//           contactoAbierto &&
-//           <Contacto cerrarContacto={cerrarContacto} />
-//         }
+      </HashRouter>
 
-//       </HashRouter>
-
-//     </div>
-//   )
-// }
+    </div>
+  )
+}
 
 
-// function NewApp() {
+function NewApp() {
 
-//   return (
+  return (
 
-//     <CustomProvider>
+    <CustomProvider>
 
-//       <App />
+      <App />
 
-//     </CustomProvider>
+    </CustomProvider>
 
-//   )
-// }
+  )
+}
 
-// export default NewApp
+export default NewApp
 
 
 
@@ -254,42 +253,44 @@
 
 
 
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import './Chongui.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import CustomProvider from './Provider'
-import Navbar from './Chongui/Navbar';
-import Main from './Chongui/Main';
+// import { HashRouter, Routes, Route } from 'react-router-dom'
+// import './Chongui.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap-icons/font/bootstrap-icons.css';
+// import CustomProvider from './Provider'
+// import Navbar from './Chongui/Navbar';
+// import Main from './Chongui/Main';
+// import Footer from './Chongui/Footer';
 
-function App() {
-  return (
-    <div className="app container">
-      <CustomProvider>
-        <HashRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Main />} />
-          </Routes>
-        </HashRouter>
-      </CustomProvider>
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div className="app container">
+//       <CustomProvider>
+//         <HashRouter>
+//           <Navbar />
+//           <Routes>
+//             <Route path="/" element={<Main />} />
+//           </Routes>
+//           <Footer />
+//         </HashRouter>
+//       </CustomProvider>
+//     </div>
+//   );
+// }
 
 
 
-function NewApp() {
+// function NewApp() {
 
-  return (
+//   return (
 
-    <CustomProvider>
+//     <CustomProvider>
 
-      <App />
+//       <App />
 
-    </CustomProvider>
+//     </CustomProvider>
 
-  )
-}
+//   )
+// }
 
-export default NewApp
+// export default NewApp
