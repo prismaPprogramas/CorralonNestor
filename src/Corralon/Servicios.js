@@ -41,7 +41,7 @@ const Servicios = () => {
         <div className="serviciosCorralon__imagenBox">
 
           <img
-            src="../../Corralon/servicios-corralon.jpg"
+            src="https://res.cloudinary.com/heql2txb/image/upload/v1788786989/servicios-corralon.jpg"
             alt="Depósito y materiales para construcción"
             className="serviciosCorralon__imagen"
           />

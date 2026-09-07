@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="heroCorralon" id="inicio">
 
       <img
-        src="../../Corralon/imgHero.jfif"
+        src="https://res.cloudinary.com/heql2txb/image/upload/v1788787056/ImgHero.jpg"
         alt="Materiales para la construcción"
         className="heroCorralon__imagen"
       />
